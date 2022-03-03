@@ -1,24 +1,45 @@
-class Rectangle:
-  def getData(self,length,breadth):
-     self.length=length
-     self.breadth=breadth
-  def area(self):
-     a=self.length*self.breadth
-     print("Area of rectangle with length",self.length,"and breadth",self.breadth,"is",a)
-  def perimeter(self):
-     p=2*(self.length+self.breadth)
-     print("perimter of rectangle with length ",self.length,"and breadth",self.breadth, "is",p)
+class Customer:
+    def getData(self,name,accno,acctype,balance):
+        self.name=name
+        self.accno=accno
+        self.acctype=acctype
+        self.balance=balance
+    def displayCustomer(self):
+        print("customer name:",self.name)
+        print("account number:",self.accno)
+        print("account type:",self.acctype)
+        print("balance account:",self.balance)
+    def deposit(self,amount):
+        self.balance=self.balance+amount
+    def withdrawal(self,amount):
+        if self.balance-amount<0:
+            print("insufficient funds")
+        else: self.balance=self.balance-amount
+
 ch=0
-l=int(input("Enter length of a reactangle:"))
-b=int(input("Enter Breadth of a rectangele:"))
-obj=Rectangle()
-obj.getData(l,b)
-while ch!=3:
-    print("1.Area")
-    print("2.Perimeter")
-    print("3.Exit")
-    ch=int(input("Enter your choice:"))
-    if ch==1:obj.area()
-    if ch==2:obj.perimeter()
-else: print("End of the program")
+while ch!=5:
+    print("1.new customer")
+    print("2.deposit")
+    print("3.withdrawal")
+    print("4.display")
+    print("5.exit")
+    ch=int(input("enter your choice"))
+    if ch==1:
+        obj=Customer()
+        n=input("enter name")
+        no=int(input("enter account number:"))
+        t=input("enter account type(sb/c):")
+        b=int(input("enter the amount"))
+        obj.getData(n,no,t,b)
+    if ch==2:
+        b=int(input("enter the amount to be deposited: "))
+        obj.deposit(b)
+    if ch==3:
+        b=int(input("enter the amount to be withdrawn: "))
+        obj.withdrawal(b)
+    if ch==4:
+        obj.displayCustomer()
+    else:print("program terminated")     
+
+        
     
