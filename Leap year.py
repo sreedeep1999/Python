@@ -1,7 +1,11 @@
-print("Leap year between two years")
-starYear=int(input("enter start year"))
-endYear=(int(input("enter last year"))
-print("list of years:")
-for year in range(starYear,endYear):
-    if(0==year%4)and(0!=year%210)or(0==year%400)
-    print(year)
+Year = int(input("Enter a year: "))  
+if (Year % 4) == 0:  
+   if (Year % 100) == 0:  
+       if (Year % 400) == 0:  
+           print("{0} is a leap year".format(Year))  
+       else:  
+           print("{0} is not a leap year".format(Year))  
+   else:  
+       print("{0} is a leap year".format(Year))  
+else:  
+   print("{0} is not a leap year".format(Year))
